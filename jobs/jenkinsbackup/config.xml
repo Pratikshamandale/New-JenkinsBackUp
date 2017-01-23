@@ -1,5 +1,6 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <project>
+  <actions/>
   <description></description>
   <keepDependencies>false</keepDependencies>
   <properties/>
@@ -22,6 +23,7 @@ cp *.xml New-JenkinsBackUp/.
 cp *.key New-JenkinsBackUp/.
 rsync -am --include=&apos;config.xml&apos; --include=&apos;*/&apos; --prune-empty-dirs --exclude=&apos;*&apos; ./users New-JenkinsBackUp/.
 rsync -am --include=&apos;config.xml&apos; --include=&apos;*/&apos; --prune-empty-dirs --exclude=&apos;*&apos; ./jobs New-JenkinsBackUp/.
+rsync -am --include=&apos;config.xml&apos; --include=&apos;*/&apos; --prune-empty-dirs --exclude=&apos;*&apos; ./secrets New-JenkinsBackUp/.
 
 cd New-JenkinsBackUp
 git add -A
