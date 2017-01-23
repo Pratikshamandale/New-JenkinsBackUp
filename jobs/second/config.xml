@@ -1,6 +1,5 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <project>
-  <actions/>
   <description></description>
   <keepDependencies>false</keepDependencies>
   <properties/>
@@ -13,9 +12,7 @@
   <concurrentBuild>false</concurrentBuild>
   <builders>
     <hudson.tasks.Shell>
-      <command>echo &quot;hi&quot;
-
-echo &quot;hello&quot;</command>
+      <command>echo &quot;secondjob&quot;</command>
     </hudson.tasks.Shell>
   </builders>
   <publishers/>
