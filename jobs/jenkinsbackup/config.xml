@@ -30,7 +30,7 @@ rsync -am --include=&apos;*/&apos; --prune-empty-dirs --exclude=&apos;*&apos; ./
 cd New-JenkinsBackUp
 git add -A
 
-git commit -m &quot;Jenkins ${JENKINS_MASTER} config backup for $(date)&quot;
+git commit --allow-empty -m &quot;Jenkins ${JENKINS_MASTER} config backup for $(date)&quot;
 
 git push origin master</command>
     </hudson.tasks.Shell>
