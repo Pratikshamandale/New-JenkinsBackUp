@@ -1,0 +1,36 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<project>
+  <description></description>
+  <keepDependencies>false</keepDependencies>
+  <properties/>
+  <scm class="hudson.scm.NullSCM"/>
+  <canRoam>true</canRoam>
+  <disabled>false</disabled>
+  <blockBuildWhenDownstreamBuilding>false</blockBuildWhenDownstreamBuilding>
+  <blockBuildWhenUpstreamBuilding>false</blockBuildWhenUpstreamBuilding>
+  <triggers/>
+  <concurrentBuild>false</concurrentBuild>
+  <builders>
+    <hudson.tasks.Shell>
+      <command>cd /var/lib/jenkins
+
+rm -rf New-JenkinsBackUp
+
+git clone git@github.com:Pratikshamandale/New-JenkinsBackUp.git
+
+cp *.xml New-JenkinsBackUp/.
+cp *.key New-JenkinsBackUp/.
+rsync -am --include=&apos;config.xml&apos; --include=&apos;*/&apos; --prune-empty-dirs --exclude=&apos;*&apos; ./users New-JenkinsBackUp/.
+rsync -am --include=&apos;config.xml&apos; --include=&apos;*/&apos; --prune-empty-dirs --exclude=&apos;*&apos; ./jobs New-JenkinsBackUp/.
+
+cd New-JenkinsBackUp
+git add -A
+
+git commit -m &quot;Jenkins ${JENKINS_MASTER} config backup for $(date)&quot;
+
+git push origin master</command>
+    </hudson.tasks.Shell>
+  </builders>
+  <publishers/>
+  <buildWrappers/>
+</project>
