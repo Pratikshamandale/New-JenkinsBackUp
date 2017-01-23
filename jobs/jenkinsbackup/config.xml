@@ -19,6 +19,8 @@ rm -rf New-JenkinsBackUp
 
 git clone git@github.com:Pratikshamandale/New-JenkinsBackUp.git
 
+rm -rf New-JenkinsBackUp/*
+
 cp *.xml New-JenkinsBackUp/.
 cp *.key New-JenkinsBackUp/.
 rsync -am --include=&apos;config.xml&apos; --include=&apos;*/&apos; --prune-empty-dirs --exclude=&apos;*&apos; ./users New-JenkinsBackUp/.
